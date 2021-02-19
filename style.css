@@ -1,0 +1,35 @@
+body {
+    background: rgb(0, 0, 0);
+    color: white
+}
+
+.titulo {
+    color: rgb(255, 255, 255);
+    font: normal 15pt Arial;
+}
+
+.area {
+    background: black;
+    position: absolute;
+    top: 60px;
+    width: 2000px;
+    height: 1000px;
+}
+
+.botaoStart {
+    width: 180px;
+    height: 30px;
+}
+.botaoStop {
+    width: 180px;
+    height: 30px;
+}
+.vix {
+    width: 60px
+}
+.viy {
+    width: 60px
+}
+.massa {
+    width: 60px
+}
