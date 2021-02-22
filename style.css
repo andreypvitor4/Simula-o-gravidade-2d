@@ -1,35 +1,42 @@
 body {
     background: rgb(0, 0, 0);
-    color: white
+    color: white;
+    font: normal 11pt Arial;
 }
 
 .titulo {
     color: rgb(255, 255, 255);
-    font: normal 15pt Arial;
+    position: absolute;
+    top: 32px;
+    left: 10px;
 }
 
 .area {
     background: black;
     position: absolute;
-    top: 60px;
+    top: 50px;
+    left: 0px;
     width: 2000px;
     height: 1000px;
 }
 
 .botaoStart {
-    width: 180px;
-    height: 30px;
+    width: 110px;
+    height: 20px;
 }
 .botaoStop {
-    width: 180px;
-    height: 30px;
+    width: 110px;
+    height: 20px;
 }
 .vix {
-    width: 60px
+    width: 50px;
 }
 .viy {
-    width: 60px
+    width: 50px;
 }
 .massa {
-    width: 60px
+    width: 70px;
+}
+.densidade {
+    width: 50px;
 }

@@ -21,7 +21,7 @@ function start(bag) {
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsx.O[i][j] = aclx(bag.corpos[i].x+10, bag.corpos[i].y+10, bag.corpos[j].x+10, bag.corpos[j].y+10, bag.corpos[j].massa)
+                velsx.O[i][j] = aclx(bag.corpos[i].x, bag.corpos[i].y, bag.corpos[j].x, bag.corpos[j].y, bag.corpos[j].massa)
             }
             
         }
@@ -29,7 +29,7 @@ function start(bag) {
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsy.O[i][j] = acly(bag.corpos[i].x+10, bag.corpos[i].y+10, bag.corpos[j].x+10, bag.corpos[j].y+10, bag.corpos[j].massa)
+                velsy.O[i][j] = acly(bag.corpos[i].x, bag.corpos[i].y, bag.corpos[j].x, bag.corpos[j].y, bag.corpos[j].massa)
             }
             
         }
@@ -48,8 +48,8 @@ function start(bag) {
             bag.corpos[i].velx += somax
             bag.corpos[i].vely += somay
             
-            bag.setCorpos[i].style.left = `${bag.corpos[i].x}px`
-            bag.setCorpos[i].style.top = `${bag.corpos[i].y}px`
+            bag.setCorpos[i].style.left = `${bag.corpos[i].x - bag.corpos[i].raio}px`
+            bag.setCorpos[i].style.top = `${bag.corpos[i].y - bag.corpos[i].raio - 50}px`
             
         }
         document.getElementById('botaoStop').addEventListener("click", function() {
