@@ -21,7 +21,7 @@ function start(bag) {
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsx.O[i][j] = aclx(bag.corpos[i].x, bag.corpos[i].y, bag.corpos[j].x, bag.corpos[j].y, bag.corpos[j].massa)
+                velsx.O[i][j] = aclx(bag.corpos[i], bag.corpos[j])
             }
             
         }
@@ -29,10 +29,12 @@ function start(bag) {
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsy.O[i][j] = acly(bag.corpos[i].x, bag.corpos[i].y, bag.corpos[j].x, bag.corpos[j].y, bag.corpos[j].massa)
+                velsy.O[i][j] = acly(bag.corpos[i], bag.corpos[j])
             }
             
         }
+
+        
         
         for(let i in bag.corpos) {
             bag.corpos[i].x += bag.corpos[i].velx

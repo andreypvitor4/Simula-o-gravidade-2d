@@ -25,13 +25,15 @@ const criaCorpo = (bag, e) => {
     let d = document.getElementById('densidade')
     let Raio = criaRaio(Number(m.value), Number(d.value))
     bag.corpos.push({
+        n: bag.n,
         x: e.pageX,
         y: e.pageY,
         velx: Number(Vix.value),
         vely: Number(Viy.value),
         massa: Number(m.value),
         densidade: Number(d.value),
-        raio: Raio
+        raio: Raio,
+        colisao: 0
     })
 }
 
