@@ -6,9 +6,10 @@ body {
 
 .titulo {
     color: rgb(255, 255, 255);
-    position: absolute;
-    top: 32px;
-    left: 10px;
+    font: normal 17pt Arial;
+    position: relative;
+    left: 300px;
+    top: 200px;
 }
 
 .area {
@@ -20,6 +21,22 @@ body {
     height: 1000px;
 }
 
+.botoes {
+    background:rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: 200px;
+}
+
+.valores {
+    background:rgb(0, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: 600px;
+    width: 400px;
+}
+
 .botaoStart {
     width: 110px;
     height: 20px;
@@ -28,6 +45,13 @@ body {
     width: 110px;
     height: 20px;
 }
+.botaoEdit {
+    width: 20px;
+}
+.botaoDelete {
+    width: 20px;
+}
+
 .vix {
     width: 50px;
 }
@@ -38,5 +62,5 @@ body {
     width: 70px;
 }
 .densidade {
-    width: 50px;
+    width: 43px;
 }

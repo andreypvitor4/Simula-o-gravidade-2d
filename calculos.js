@@ -1,5 +1,5 @@
-const aceleracao = (m, d) => {
-    return  d == 0? 0.001: (m/(d**2))/10
+const aceleracao = (m, d, raio1, raio2) => {
+    return  d <= (raio1+raio2)/2? 0.01: (m/(d**2))/10
 }
 
 const distancia = (x1, y1, x2, y2) => {
@@ -18,27 +18,35 @@ const direcao = (b, a) => {
     return a == b? 0: Math.abs(a - b)/(a - b)
 }
 
-const aclx = (corpo1, corpo2) => {
+const aclx = (corpo1, corpo2, gravidade, colisoes) => {
+    console.log(corpo1.raio)
     let dist = distancia(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
-    let ang = angulo(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
-    if(dist <= (corpo1.raio+corpo2.raio)) {
-        if(corpo1.colisao == 0) { 
-            console.log(corpo1.n)
+    if(dist <= (corpo1.raio+corpo2.raio) && colisoes == true) {
+        if(corpo1.colisao == true) { 
             colisao(corpo1, corpo2)
         } 
-        corpo1.colisao = 0 //pode colidir
+        corpo1.colisao = true //pode colidir
     }
-    let vel = aceleracao(corpo2.massa, dist)
-    let dir = direcao(corpo1.x, corpo2.x)
-    return dir*vel*Math.cos(ang)
+    if(gravidade) {
+        let ang = angulo(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
+        let vel = aceleracao(corpo2.massa, dist, corpo1.raio, corpo2.raio)
+        let dir = direcao(corpo1.x, corpo2.x)
+        return dir*vel*Math.cos(ang)
+    }
+    return 0
+    
 }
 
-const acly = (corpo1, corpo2) => {
-    let dist = distancia(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
-    let ang = angulo(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
-    let vel = aceleracao(corpo2.massa, dist)
-    let dir = direcao(corpo1.y, corpo2.y)
-    return dir*vel*Math.sin(ang)
+const acly = (corpo1, corpo2, gravidade) => {
+    if(gravidade){
+        let dist = distancia(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
+        let ang = angulo(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
+        let vel = aceleracao(corpo2.massa, dist, corpo1.raio, corpo2.raio)
+        let dir = direcao(corpo1.y, corpo2.y)
+        return dir*vel*Math.sin(ang)
+    }
+    return 0
+    
 }
 
 const colisao = (corpo1, corpo2) => {
@@ -61,8 +69,7 @@ const colisao = (corpo1, corpo2) => {
     corpo1.vely = vetorVelC1[1][0]
     corpo2.velx = vetorVelC2[0][0]
     corpo2.vely = vetorVelC2[1][0]
-    corpo1.colisao = 1
-    corpo2.colisao = 1
+    corpo2.colisao = false
 }
 
 const calculoImpacto = (vetorVelD1, vetorVelD2, corpo1, corpo2) => {
@@ -122,4 +129,4 @@ const criaMatriz2x2 = (a, b, c ,d) => {
     return M
 }
 
-export {aclx, acly}
+export {aclx, acly, distancia}

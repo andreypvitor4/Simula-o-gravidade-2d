@@ -9,15 +9,23 @@
 </head>
 <body>
     <script src="script.js" type="module"></script>
-    <input class="botaoStart" type="button" value="Start" id="botaoStart">
-    <input class="botaoStop" type="button" value="Stop" id="botaoStop">
-    Velocidade em x: <input type="number" name="vix" id="vix" class="vix" placeholder="0">
-    Velocidade em y: <input type="number" name="viy" id="viy" class="viy" placeholder="0">
-    Massa: <input type="number" id="massa" class="massa" placeholder="0" value="30000">
-    Densidade: <input type="number" id="densidade" class="densidade" value="1">
-    <div class="titulo">Insira os valores e clique em um espaço vazio para inserir um corpo.</div>
-    <div id="area" class="area">
+    <div class="botoes">
+        <input class="botaoStart" type="button" value="Start" id="botaoStart">
+        <input class="botaoEdit" type="radio" id="botaoEdit" name="edit" checked>Editar
+        <input class="botaoStop" type="button" value="Stop" id="botaoStop">
+        <input class="botaoDelete" type="radio" id="botaoDelete" name="edit">Deletar
+    </div>
+    <div class="valores">
+        Velocidade em x: <input type="number" id="vix" class="vix" placeholder="0">
+        Massa: <input type="number" id="massa" class="massa" placeholder="0" value="30000">
+        <input type="checkbox" name="gravidade" id="gravidade" checked>Gravidade
+        Velocidade em y: <input type="number" id="viy" class="viy" placeholder="0">
+        Densidade: <input type="number" id="densidade" class="densidade" value="1">
+        <input type="checkbox" name="colisao" id="colisao" checked>Colisão
+    </div>
     
+    <div id="area" class="area">
+        <div class="titulo" id="titulo">Insira os valores e clique em um espaço vazio para inserir um corpo.<br><br>Para editar, selecione editar e clique sobre o corpo escolhido<br><br>Para deletar, selecione deletar e clique sobre o corpo escolhido</div>
     </div>
     
 </body>

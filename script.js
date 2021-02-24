@@ -7,21 +7,31 @@ let bag = {
     divs: [],
     setCorpos: [],
     corpos: [],
+    colisoes: true,
+    gravidade: false,
+    start: true
 }
 
 function start(bag) {
+    bag.start = false
     bag.loop = 1
     let velsx = {}
     let velsy = {}
 
     loop()
     function loop() {
+        bag.colisoes = document.getElementById('colisao').checked
+        bag.gravidade = document.getElementById('gravidade').checked
         
         velsx.O = [ [], [], [], [], [], [], [], [], [], [] ]
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsx.O[i][j] = aclx(bag.corpos[i], bag.corpos[j])
+                if(bag.corpos[i].deletado == true || bag.corpos[j].deletado == true) {
+                    velsx.O[i][j] = 0
+                }else {
+                    velsx.O[i][j] = aclx(bag.corpos[i], bag.corpos[j], bag.gravidade, bag.colisoes)
+                }
             }
             
         }
@@ -29,7 +39,11 @@ function start(bag) {
         for(let i in bag.corpos) {
             for(let j in bag.corpos)  {
                 if(i == j) continue
-                velsy.O[i][j] = acly(bag.corpos[i], bag.corpos[j])
+                if(bag.corpos[i].deletado == true || bag.corpos[j].deletado == true) {
+                    velsy.O[i][j] = 0
+                }else {
+                    velsy.O[i][j] = acly(bag.corpos[i], bag.corpos[j], bag.gravidade)
+                }
             }
             
         }
@@ -56,6 +70,7 @@ function start(bag) {
         }
         document.getElementById('botaoStop').addEventListener("click", function() {
             bag.loop = 0
+            bag.start = true
         })
         if(bag.loop == 1) {
             return setTimeout(loop, 50)
@@ -68,9 +83,10 @@ function start(bag) {
 function Eventos() {
     area.addEventListener("click", function(e) {
         pegarPosicao(bag, e)
+        document.getElementById('titulo').innerHTML = ''
     })
     document.getElementById('botaoStart').addEventListener("click", function() {
-        start(bag)
+        bag.start && start(bag)
     })
 }
 window.onload = Eventos()
