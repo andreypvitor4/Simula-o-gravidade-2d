@@ -1,5 +1,5 @@
 const aceleracao = (m, d, raio1, raio2) => {
-    return  d <= (raio1+raio2)/2? 0.01: (m/(d**2))/10
+    return  d <= (raio1+raio2)/2? 0.01: (m/(d**2))/100
 }
 
 const distancia = (x1, y1, x2, y2) => {

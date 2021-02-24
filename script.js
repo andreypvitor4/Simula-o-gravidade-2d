@@ -73,7 +73,7 @@ function start(bag) {
             bag.start = true
         })
         if(bag.loop == 1) {
-            return setTimeout(loop, 50)
+            return setTimeout(loop, 20)
         }else {
             return null
         }

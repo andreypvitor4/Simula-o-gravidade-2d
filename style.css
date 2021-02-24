@@ -24,16 +24,16 @@ body {
 .botoes {
     background:rgb(0, 0, 0);
     position: absolute;
-    top: 0px;
-    left: 300px;
+    top: 5px;
+    left: 520px;
     width: 200px;
 }
 
 .valores {
     background:rgb(0, 0, 0);
     position: absolute;
-    top: 0px;
-    left: 600px;
+    top: 5px;
+    left: 785px;
     width: 400px;
 }
 
@@ -63,4 +63,63 @@ body {
 }
 .densidade {
     width: 43px;
+}
+
+.cores {
+    width: 350px;
+    position: absolute;
+    top: 2px;
+    left: 140px;
+}
+
+.vermelho {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: red;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+.amarelo {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: yellow;
+    position: absolute;
+    top: 10px;
+    left: 90px;
+}
+.azul {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: blue;
+    position: absolute;
+    top: 10px;
+    left: 150px;
+}
+.verde {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: green;
+    position: absolute;
+    top: 10px;
+    left: 210px;
+}
+.rosa {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: pink;
+    position: absolute;
+    top: 10px;
+    left: 270px;
+}
+
+.cor {
+    position: relative;
+    top: 5px;
+    left: -22px;
 }

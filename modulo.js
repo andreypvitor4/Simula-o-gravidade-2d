@@ -6,6 +6,7 @@ const pegarPosicao = (bag, e) => {
         corpoEdit(bag, corpoSelecionado)
     }
     else {
+        let cor = escolheCor()
         let area = document.getElementById("area")
         bag.divs.push(document.createElement('div'))
         area.appendChild(bag.divs[bag.n])
@@ -13,8 +14,7 @@ const pegarPosicao = (bag, e) => {
         bag.setCorpos.push(document.getElementById(`p${bag.n}`))
         criaCorpo(bag, e)
         bag.setCorpos[bag.n].style = `
-            background: red;\n
-            color: red;\n
+            background: ${cor};\n
             width: ${2*bag.corpos[bag.n].raio}px;\n
             height: ${2*bag.corpos[bag.n].raio}px;
             border-radius: ${bag.corpos[bag.n].raio}px;\n
@@ -70,9 +70,9 @@ const corpoEdit = (bag, corpo) => {
         corpo.densidade = Number(document.getElementById('densidade').value)
         let raio = criaRaio(corpo.massa, corpo.densidade)
         corpo.raio = raio
+        let cor = escolheCor()
         bag.setCorpos[corpo.n].style = `
-            background: red;\n
-            color: red;\n
+            background: ${cor};\n
             width: ${2*corpo.raio}px;\n
             height: ${2*corpo.raio}px;
             border-radius: ${corpo.raio}px;\n
@@ -89,6 +89,25 @@ const corpoEdit = (bag, corpo) => {
         corpo.raio = 0
         corpo.deletado = true
         bag.setCorpos[corpo.n].style = ''
+    }
+}
+
+const escolheCor = () => {
+    let i = 0
+    for(i = 0; i < 5; i++) {
+        if(document.getElementsByClassName('cor')[i].checked) break
+    }
+    switch(i) {
+        case 0:
+            return 'red';
+        case 1:
+            return 'yellow';
+        case 2:
+            return 'blue';
+        case 3:
+            return 'green';
+        case 4:
+            return 'pink';
     }
 }
 
