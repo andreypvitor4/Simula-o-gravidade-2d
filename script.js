@@ -15,41 +15,41 @@ let bag = {
 function start(bag) {
     bag.start = false
     bag.loop = 1
-    let velsx = {}
-    let velsy = {}
+    let aclsx = []
+    let aclsy = []
 
     loop()
     function loop() {
         bag.colisoes = document.getElementById('colisao').checked
         bag.gravidade = document.getElementById('gravidade').checked
         
-        velsx.O = [ [], [], [], [], [], [], [], [], [], [] ]
+        aclsx = []
         for(let i in bag.corpos) {
+            aclsx.push([])
             for(let j in bag.corpos)  {
                 if(i == j) continue
                 if(bag.corpos[i].deletado == true || bag.corpos[j].deletado == true) {
-                    velsx.O[i][j] = 0
+                    aclsx[i][j] = 0
                 }else {
-                    velsx.O[i][j] = aclx(bag.corpos[i], bag.corpos[j], bag.gravidade, bag.colisoes)
+                    aclsx[i][j] = aclx(bag.corpos[i], bag.corpos[j], bag.gravidade, bag.colisoes)
                 }
             }
             
         }
-        velsy.O = [ [], [], [], [], [], [], [], [], [], [] ]
+        aclsy = []
         for(let i in bag.corpos) {
+            aclsy.push([])
             for(let j in bag.corpos)  {
                 if(i == j) continue
                 if(bag.corpos[i].deletado == true || bag.corpos[j].deletado == true) {
-                    velsy.O[i][j] = 0
+                    aclsy[i][j] = 0
                 }else {
-                    velsy.O[i][j] = acly(bag.corpos[i], bag.corpos[j], bag.gravidade)
+                    aclsy[i][j] = acly(bag.corpos[i], bag.corpos[j], bag.gravidade)
                 }
             }
             
         }
 
-        
-        
         for(let i in bag.corpos) {
             bag.corpos[i].x += bag.corpos[i].velx
             bag.corpos[i].y += bag.corpos[i].vely
@@ -57,8 +57,8 @@ function start(bag) {
             let somay = 0
             for(let j = 0; j < bag.n; j++) {
                 if(i == j) continue
-                somax += velsx.O[i][j]
-                somay += velsy.O[i][j]
+                somax += aclsx[i][j]
+                somay += aclsy[i][j]
             }
             
             bag.corpos[i].velx += somax

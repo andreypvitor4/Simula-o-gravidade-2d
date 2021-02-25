@@ -19,7 +19,6 @@ const direcao = (b, a) => {
 }
 
 const aclx = (corpo1, corpo2, gravidade, colisoes) => {
-    console.log(corpo1.raio)
     let dist = distancia(corpo1.x, corpo1.y, corpo2.x, corpo2.y)
     if(dist <= (corpo1.raio+corpo2.raio) && colisoes == true) {
         if(corpo1.colisao == true) { 

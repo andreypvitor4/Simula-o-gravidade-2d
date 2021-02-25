@@ -63,7 +63,7 @@ const confereEspaco = (bag, e) => {
 const corpoEdit = (bag, corpo) => {
     let editDelete = document.getElementsByName('edit')
 
-    if(editDelete[0].checked) {
+    if(editDelete[0].checked) { //edit
         corpo.velx = Number(document.getElementById('vix').value)
         corpo.vely = Number(document.getElementById('viy').value)
         corpo.massa = Number(document.getElementById('massa').value)
@@ -79,7 +79,7 @@ const corpoEdit = (bag, corpo) => {
             position: absolute;\n
             left: ${corpo.x - corpo.raio}px;\n
             top: ${corpo.y - corpo.raio - 50}px;`
-    }else {
+    }else { //delete
         corpo.x = -1
         corpo.y = -1
         corpo.velx = 0
